@@ -1,7 +1,9 @@
 import os
+import pickle as pkl
 from datetime import datetime
 from typing import Optional
 
+import matplotlib.pyplot as plt
 import numpy as np
 import opendatasets as od
 import pandas as pd
@@ -13,11 +15,6 @@ from common.normalization import Normalizer
 from common.preprocessing import preprocess
 from common.recurrent_model import RecurrentModel
 from rnn.rnn_layer import RNNLayer
-
-import pickle as pkl
-
-import matplotlib.pyplot as plt
-
 
 TRAIN_SIZE: float = 0.8
 PREPROCESSED_DATASET_PATH: str = "preprocessed.csv"
@@ -146,7 +143,7 @@ def get_trained_model(normalizer: Normalizer, train: pd.DataFrame, dates: pd.Ser
 
 
 def test_model(
-    model: RecurrentModel, normalizer: Normalizer, test: pd.DataFrame, dates: pd.Series, train_size: int
+        model: RecurrentModel, normalizer: Normalizer, test: pd.DataFrame, dates: pd.Series, train_size: int
 ) -> None:
     sequence = []
     prev_date: Optional[datetime] = None

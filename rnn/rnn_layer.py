@@ -21,11 +21,11 @@ class RNNLayer(Layer):
     __sequence_length: int
 
     def __init__(
-        self,
-        input_size: int,
-        hidden_size: int,
-        output_size: int,
-        activation: Activation,
+            self,
+            input_size: int,
+            hidden_size: int,
+            output_size: int,
+            activation: Activation,
     ):
         k: float = 1 / np.sqrt(hidden_size)
 
